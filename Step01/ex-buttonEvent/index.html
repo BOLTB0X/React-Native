@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ex: Button Event</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+                background-color: #f9f9f9;
+                font-family: Arial, sans-serif;
+            }
+            img {
+                width: 600px;
+                height: auto;
+                margin-bottom: 20px;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id = "message">어어어어어어어어어어어어어어어어어</h1>
+        <img id = "myImg" src = "before.gif", alt="image">
+        <button onclick="changeByButton()">Click me</button>
+        <script>
+            let isToggle = false;
+
+            function changeByButton() {
+                const msg = document.getElementById('message');
+                const img = document.getElementById('myImg');
+
+                isToggle = !isToggle;
+                msg.textContent = isToggle ? "웅.장." : "어어어어어어어어어어어어어어어어어";
+                img.src = isToggle ? "after.gif" : "before.gif";
+            }
+        </script>
+    </body>
+</html>

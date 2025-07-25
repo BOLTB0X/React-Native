@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>오반은 왜 소리지를까??</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        img {
+            width: 500px;
+            height: 400px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        input {
+            font-size: 18px;
+            padding: 5px 10px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <img id="reactionImage" src="1.gif" alt="기본 이미지" />
+    <div class="container">
+        <input type="text" id="reasonInput" placeholder="이유를 작성해줘라" />
+        <button onclick="checkAnswer()">정답 확인</button>
+    </div>
+    <p>이유: <span id="nameDisplay"></span></p>
+
+    <script>
+        const input = document.getElementById('reasonInput');
+        const display = document.getElementById('nameDisplay');
+        const image = document.getElementById('reactionImage');
+
+        const keywords = ["셀 때문에", "셀 때문", "셀이 화나게 해서", "셀", "인조인간 16호의 죽음", "16호를 죽인 셀"];
+
+        input.addEventListener('input', () => {
+            const value = input.value.trim();
+            image.src = "1.gif";
+            display.textContent = value;
+        });
+
+        function checkAnswer() {
+            const value = input.value.trim();
+
+            const isCorrect = keywords.some(keyword => value.includes(keyword));
+
+            if (isCorrect) {
+                image.src = "2.gif";
+                display.textContent = "정답~";
+            } else {
+                image.src = "3.gif";
+                display.textContent = "드래곤볼도 안본...";
+            }
+        }
+    </script>
+</body>
+</html>
